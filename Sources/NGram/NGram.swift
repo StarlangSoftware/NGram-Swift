@@ -44,7 +44,7 @@ class NGram<Symbol: Hashable>{
             self.__lambda2 = Double(items[2])!
             items = lines.removeFirst().split(separator: " ").map(String.init)
             for i in 0..<items.count{
-                self.__probabilityOfUnseen[i] = Double(items[i])!
+                self.__probabilityOfUnseen.append(Double(items[i])!)
             }
             let vocabularySize = Int(lines.removeFirst())!
             for _ in 0..<vocabularySize{
@@ -53,6 +53,14 @@ class NGram<Symbol: Hashable>{
             self.rootNode = NGramNode(isRootNode: true, lines: &lines)
         } catch {
         }
+    }
+    
+    public func merge(toBeMerged: NGram){
+        if __N != toBeMerged.getN(){
+            return
+        }
+        __vocabulary.formUnion(toBeMerged.__vocabulary)
+        rootNode!.merge(toBeMerged: toBeMerged.rootNode!)
     }
     
     /**

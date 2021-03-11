@@ -30,7 +30,8 @@ class NGramNode<Symbol : Hashable>{
         if !isRootNode{
             self.__symbol = (lines.removeFirst() as! Symbol)
         }
-        let line = lines.removeFirst()
+        var line = lines.removeFirst()
+        line = line.trimmingCharacters(in: CharacterSet.init(charactersIn: "\t"))
         let items : [String] = line.components(separatedBy: " ")
         self.__count = Int(items[0])!
         self.__probability = Double(items[1])!
@@ -40,6 +41,19 @@ class NGramNode<Symbol : Hashable>{
             for _ in 0..<numberOfChildren!{
                 let childNode = NGramNode<Symbol>(isRootNode: false, lines: &lines)
                 self.__children[childNode.__symbol!] = childNode
+            }
+        }
+    }
+    
+    public func merge(toBeMerged: NGramNode){
+        for symbol in __children.keys{
+            if toBeMerged.__children[symbol] != nil {
+                __children[symbol]!.merge(toBeMerged: toBeMerged.__children[symbol]!)
+            }
+        }
+        for symbol in toBeMerged.__children.keys{
+            if __children[symbol] == nil{
+                __children[symbol] = toBeMerged.__children[symbol]
             }
         }
     }
