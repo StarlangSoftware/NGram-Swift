@@ -8,7 +8,7 @@
 import Foundation
 import Sampling
 
-class InterpolatedSmoothing<Symbol: Hashable>: TrainedSmoothing<Symbol>{
+public class InterpolatedSmoothing<Symbol: Hashable>: TrainedSmoothing<Symbol>{
     
     private var lambda1: Double = 0.0
     private var lambda2: Double = 0.0

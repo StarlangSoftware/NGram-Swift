@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LaplaceSmoothing<Symbol: Hashable> : SimpleSmoothing<Symbol>{
+public class LaplaceSmoothing<Symbol: Hashable> : SimpleSmoothing<Symbol>{
     
     private var delta: Double
     

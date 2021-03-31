@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TrainedSmoothing<Symbol : Hashable> : SimpleSmoothing<Symbol>{
+public class TrainedSmoothing<Symbol : Hashable> : SimpleSmoothing<Symbol>{
     
     public func learnParameters(corpus: [[Symbol]], N: Int){
     }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NoSmoothingWithNonRareWords<Symbol : Hashable>: NoSmoothing<Symbol>{
+public class NoSmoothingWithNonRareWords<Symbol : Hashable>: NoSmoothing<Symbol>{
     
     private var dictionary: Set<Symbol> = []
     private var probability: Double

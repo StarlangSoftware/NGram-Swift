@@ -8,7 +8,7 @@
 import Foundation
 import Sampling
 
-class AdditiveSmoothing<Symbol : Hashable>:TrainedSmoothing<Symbol>{
+public class AdditiveSmoothing<Symbol : Hashable>:TrainedSmoothing<Symbol>{
     
     private var delta: Double = 0.0
 

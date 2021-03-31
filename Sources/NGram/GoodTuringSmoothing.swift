@@ -8,7 +8,7 @@
 import Foundation
 import Math
 
-class GoodTuringSmoothing<Symbol : Hashable> : SimpleSmoothing<Symbol>{
+public class GoodTuringSmoothing<Symbol : Hashable> : SimpleSmoothing<Symbol>{
     
     /**
     Given counts of counts, this function will calculate the estimated counts of counts c$^*$ with

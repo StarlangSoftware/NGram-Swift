@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NoSmoothingWithDictionary<Symbol : Hashable> : NoSmoothing<Symbol>{
+public class NoSmoothingWithDictionary<Symbol : Hashable> : NoSmoothing<Symbol>{
     
     private var dictionary : Set<Symbol>
     

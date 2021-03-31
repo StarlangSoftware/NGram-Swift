@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SimpleSmoothing<Symbol : Hashable>{
+public class SimpleSmoothing<Symbol : Hashable>{
     
     public func setProbabilities(nGram: NGram<Symbol>, level: Int){
         

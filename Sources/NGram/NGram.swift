@@ -8,7 +8,7 @@
 import Foundation
 import DataStructure
 
-class NGram<Symbol: Hashable>{
+public class NGram<Symbol: Hashable>{
     
     var rootNode: NGramNode<Symbol>? = nil
     var __N: Int = 0
