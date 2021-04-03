@@ -9,6 +9,9 @@ import Foundation
 
 public class SimpleSmoothing<Symbol : Hashable>{
     
+    public init(){
+    }
+    
     public func setProbabilities(nGram: NGram<Symbol>, level: Int){
         
     }
