@@ -7,6 +7,7 @@
 
 import Foundation
 import DataStructure
+import Util
 
 public class NGram<Symbol: Hashable>{
     
