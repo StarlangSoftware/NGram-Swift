@@ -1,4 +1,4 @@
-// swift-tools-version:5.2
+// swift-tools-version:5.5
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -21,7 +21,9 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "NGram",
-            dependencies: ["Sampling", "Math", "DataStructure"]),
+            dependencies: ["Sampling", "Math", "DataStructure"],
+            resources: [.process("simple1a.txt"),.process("simple1b.txt"),.process("simple2a.txt"),.process("simple2b.txt"),.process("simple2c.txt"),.process("simple2d.txt"),.process("simple3a.txt"),.process("simple3b.txt"),.process("simple3c.txt")]
+        ),
         .testTarget(
             name: "NGramTests",
             dependencies: ["NGram"]),

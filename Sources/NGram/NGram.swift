@@ -7,7 +7,6 @@
 
 import Foundation
 import DataStructure
-import Util
 
 public class NGram<Symbol: Hashable>{
     
@@ -33,11 +32,9 @@ public class NGram<Symbol: Hashable>{
     }
 
     public init(fileName: String){
-        let thisSourceFile = URL(fileURLWithPath: #file)
-        let thisDirectory = thisSourceFile.deletingLastPathComponent()
-        let url = thisDirectory.appendingPathComponent(fileName)
+        let url = Bundle.module.url(forResource: fileName, withExtension: "txt")
         do{
-            let fileContent = try String(contentsOf: url, encoding: .utf8)
+            let fileContent = try String(contentsOf: url!, encoding: .utf8)
             var lines : [String] = fileContent.split(whereSeparator: \.isNewline).map(String.init)
             var items : [String] = lines.removeFirst().split(separator: " ").map(String.init)
             self.__N = Int(items[0])!

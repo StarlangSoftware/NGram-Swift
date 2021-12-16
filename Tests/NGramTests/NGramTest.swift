@@ -68,17 +68,17 @@ final class NGramTest: CorpusTest {
     }
 
     func testMerge(){
-        self.simpleUniGram = NGram(fileName: "simple1a.txt")
-        self.simpleUniGram.merge(toBeMerged: NGram(fileName: "simple1b.txt"))
+        self.simpleUniGram = NGram(fileName: "simple1a")
+        self.simpleUniGram.merge(toBeMerged: NGram(fileName: "simple1b"))
         XCTAssertEqual(18, self.simpleUniGram.vocabularySize())
-        self.simpleBiGram = NGram(fileName: "simple2a.txt")
-        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2b.txt"))
-        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2c.txt"))
-        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2d.txt"))
+        self.simpleBiGram = NGram(fileName: "simple2a")
+        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2b"))
+        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2c"))
+        self.simpleBiGram.merge(toBeMerged: NGram(fileName: "simple2d"))
         XCTAssertEqual(21, self.simpleBiGram.vocabularySize())
-        self.simpleTriGram = NGram(fileName: "simple3a.txt")
-        self.simpleTriGram.merge(toBeMerged: NGram(fileName: "simple3b.txt"))
-        self.simpleTriGram.merge(toBeMerged: NGram(fileName: "simple3c.txt"))
+        self.simpleTriGram = NGram(fileName: "simple3a")
+        self.simpleTriGram.merge(toBeMerged: NGram(fileName: "simple3b"))
+        self.simpleTriGram.merge(toBeMerged: NGram(fileName: "simple3c"))
         XCTAssertEqual(20, self.simpleTriGram.vocabularySize())
     }
 
