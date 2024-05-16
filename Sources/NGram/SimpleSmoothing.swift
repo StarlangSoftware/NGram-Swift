@@ -16,6 +16,8 @@ public class SimpleSmoothing<Symbol : Hashable>{
         
     }
     
+    /// Calculates the N-Gram probabilities with simple smoothing.
+    /// - Parameter nGram: N-Gram for which simple smoothing calculation is done.
     public func setProbabilitiesGeneral(nGram: NGram<Symbol>){
         self.setProbabilities(nGram: nGram, level: nGram.getN())
     }

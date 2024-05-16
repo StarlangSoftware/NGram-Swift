@@ -11,6 +11,8 @@ public class LaplaceSmoothing<Symbol: Hashable> : SimpleSmoothing<Symbol>{
     
     private var delta: Double
     
+    /// Constructor for Laplace smoothing. Sets the delta.
+    /// - Parameter delta: Delta value in Laplace smoothing.
     public init(delta : Double = 1.0){
         self.delta = delta
     }

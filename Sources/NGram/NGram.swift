@@ -17,11 +17,18 @@ public class NGram<Symbol: Hashable>{
     var __Interpolated: Bool = false
     var __vocabulary: Set<Symbol> = []
     var __probabilityOfUnseen: [Double] = []
-
+    
+    /// Constructor of NGram class which takes size of ngram.
+    /// - Parameter N: size of ngram.
     public init(N: Int){
         self.__N = N;
     }
-
+    
+    /// Constructor of NGram class which takes a {@link ArrayList} corpus and {@link Integer} size of ngram as input.
+    /// It adds all sentences of corpus as ngrams.
+    /// - Parameters:
+    ///   - N: size of ngram.
+    ///   - corpus: Array of sentences whose ngrams are added.
     public init(N: Int, corpus: [[Symbol]]){
         self.__N = N;
         self.rootNode = NGramNode(symbol: nil)
@@ -30,7 +37,9 @@ public class NGram<Symbol: Hashable>{
             self.addNGramSentence(symbols: corpus[i])
         }
     }
-
+    
+    /// Constructor of NGram class which takes filename to read from text file.
+    /// - Parameter fileName: name of the text file where NGram is saved.
     public init(fileName: String){
         let url = Bundle.module.url(forResource: fileName, withExtension: "txt")
         do{
@@ -53,6 +62,9 @@ public class NGram<Symbol: Hashable>{
         }
     }
     
+    /// Merges current NGram with the given NGram. If N of the two NGram's are not same, it does not
+    /// merge. Merges first the vocabulary, then the NGram trees.
+    /// - Parameter toBeMerged: NGram to be merged with.
     public func merge(toBeMerged: NGram){
         if __N != toBeMerged.getN(){
             return

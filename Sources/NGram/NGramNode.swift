@@ -26,6 +26,10 @@ public class NGramNode<Symbol : Hashable>{
         self.__symbol = symbol
     }
     
+    /// Constructor of NGramNode
+    /// - Parameters:
+    ///   - isRootNode: True if this node is root node, false otherwise.
+    ///   - lines: File contents that contains the NGram information as an array of lines.
     public init(isRootNode: Bool, lines: inout [String]){
         if !isRootNode{
             self.__symbol = (lines.removeFirst() as! Symbol)
@@ -45,6 +49,8 @@ public class NGramNode<Symbol : Hashable>{
         }
     }
     
+    /// Merges this NGramNode with the corresponding NGramNode in another NGram.
+    /// - Parameter toBeMerged: Parallel NGramNode of the parallel NGram tree.
     public func merge(toBeMerged: NGramNode){
         for symbol in __children.keys{
             if toBeMerged.__children[symbol] != nil {
